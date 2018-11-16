@@ -1,10 +1,8 @@
-FROM continuumio/miniconda3
+FROM python:3.6-slim
 
 # import & setup packages
-RUN /opt/conda/bin/pip install --upgrade pip
-ADD ./requirements.txt requirements.txt
-RUN /opt/conda/bin/conda install --yes --file requirements.txt
-RUN /opt/conda/bin/pip install connexion[swagger-ui]==2.0.2
+ADD requirements.in requirements.txt
+RUN pip install -r requirements.txt
 
 # import all files
 RUN mkdir /opt/model_server
@@ -14,4 +12,4 @@ ADD ./model.pkl model.pkl
 ADD ./swagger.yaml swagger.yaml
 
 
-CMD /opt/conda/bin/python app.py
+CMD python app.py

@@ -6,6 +6,7 @@ import numpy as np
 from typing import Dict, Tuple
 import connexion
 from sklearn.pipeline import Pipeline
+import gzip
 
 logging.basicConfig(level=logging.INFO, format=u'%(asctime)s %(levelname)s %(name)s %(funcName)s %(message)s')
 
@@ -15,7 +16,7 @@ def health() -> Tuple[Dict[str, str], int]:
 
 
 def load_model() -> Pipeline:
-    with open('model.pkl', 'rb') as fhandler:
+    with gzip.GzipFile('model.pkl', 'r') as fhandler:
         model_object = pkl.load(fhandler)
         return model_object
 
