@@ -5,9 +5,9 @@ from uuid import uuid4
 
 
 class RequestsGenerator:
-    def __init__(self,n_requests=100):
+    def __init__(self, n_requests=100):
 
-        self.endpoint = "http://example-mef-myproject.192.168.64.2.nip.io/predict"
+        self.endpoint = "http://localhost:8080/predict"
         self.N_SAMPLES = n_requests
         self.N_FEATURES = 5
 
