@@ -5,7 +5,7 @@ mbuild:
 dbuild:
 	docker build -t model_service .
 
-drun: dbuild
+drun:
 	docker run -it -p 8080:8080 model_service
 
 test:

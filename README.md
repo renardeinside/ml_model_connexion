@@ -11,8 +11,9 @@ You need to have python3 + docker environment.
 ```bash 
 make mbuild
 ```
-- Then, run the docker container on 8080 port:
+- Then, build and run the docker container on 8080 port:
 ```bash
+make dbuild
 make drun
 ```
 - Finally, you can test the UI on http://localhost:8080/ui/ or send the test request:
