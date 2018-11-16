@@ -1,0 +1,37 @@
+swagger: "2.0"
+
+info:
+  title: Model Service
+  version: "0.1"
+  description: Simple model service in Flask + Swagger
+
+consumes:
+  - application/json
+
+produces:
+  - application/json
+
+paths:
+  /health:
+    get:
+      tags: [Health]
+      operationId: app.health
+      summary: Health Check
+      responses:
+        '200':
+          description: Status message from server describing current health
+  /predict:
+    post:
+      tags: [Predict]
+      operationId: app.predict
+      summary: Make prediction based on input request
+      parameters:
+        - in: body
+          name: user_info
+          description: User Info
+          schema:
+            type: object
+            example: {"user_id":"uuid1","X0":0.1,"X1":0.1,"X2":0.1,"X3":0.1,"X4":0.1}
+      responses:
+        '200':
+          description: Successful prediction made
